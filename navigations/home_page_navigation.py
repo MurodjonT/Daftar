@@ -6,9 +6,7 @@ from screens.admin_screen.admin_tag_screen import TagPageScreen
 from screens.admin_screen.admin_tarif_screen import TarifPageScreen
 
 
-class HomePageNavigation(HomePageScreen, StaffPageScreen,
-                         NewsPageScreen, CategoryPageScreen,
-                         TagPageScreen, TarifPageScreen):
+class HomePageNavigation(HomePageScreen):
 
     def home_page_navigation(self, login, password):
         assert self.check_open_home_page(login, password)
