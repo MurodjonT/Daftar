@@ -48,7 +48,8 @@ class Screen:
         WebDriverWait(self.driver, 10).until(ec.visibility_of_element_located(locator)).send_keys(text)
 
     def enter_data1(self, locator, text):
-        WebDriverWait(self.driver, 20).until(ec.presence_of_element_located(locator)).send_keys(text)
+        return WebDriverWait(self.driver, 20).until(ec.presence_of_element_located(locator)).send_keys(text)
+
 
     def get_element_text(self, locator):
         return WebDriverWait(self.driver, 10).until(ec.visibility_of_element_located(locator)).text

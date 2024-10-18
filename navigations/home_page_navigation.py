@@ -8,5 +8,5 @@ from screens.admin_screen.admin_tarif_screen import TarifPageScreen
 
 class HomePageNavigation(HomePageScreen):
 
-    def home_page_navigation(self, login, password):
-        assert self.check_open_home_page(login, password)
+    def home_page_navigation(self, login, password, client_balance):
+        assert self.check_open_home_page(login, password, client_balance)

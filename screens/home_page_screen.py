@@ -1,4 +1,5 @@
 import time
+from selenium.webdriver import Keys, ActionChains
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from screens.screen import Screen
@@ -18,10 +19,11 @@ class HomePageScreen(Screen):
     selected_eng_lang = (By.XPATH, "//div[@id='menu-lang']/div[3]/ul/li[3]/img")
     logo_admin_top = (By.XPATH, "//*[@class='MuiAvatar-root MuiAvatar-circular MuiAvatar-colorDefault mui-style-ltr-1gifw44-MuiAvatar-root']")
     in_logo_balance = (By.XPATH, "//*[contains(text(), 'Balance')]")
-    client_balance_option_select = (By.XPATH, "//input[@id=':r3:']")
+    client_balance_option_select = (By.XPATH, '//input[@placeholder="Shops"]')
     selected_client_balance = (By.XPATH, "//li[@id=':r3:-option-0']/div")
 
-    def check_open_home_page(self, login, password):
+
+    def check_open_home_page(self, login, password, client_balance):
         time.sleep(2)
         self.click(self.login_field)
         time.sleep(1)
@@ -38,15 +40,16 @@ class HomePageScreen(Screen):
         time.sleep(1)
         self.click(self.in_logo_balance)
         self.click(self.client_balance_option_select)
-        self.click(self.selected_client_balance)
+        time.sleep(2)
+        self.enter_data1(self.client_balance_option_select, client_balance).send_keys(Keys.RETURN)
+
         try:
             WebDriverWait(self.driver, 10).until(
                 EC.visibility_of_element_located(self.success_path)
             )
-            print("Login muvaffaqiyatli!")
             return True
         except Exception as e:
-            print(f"Xatolik yuz berdi: {e}")
+            print(f"Error : {e}")
             return False
 
 
