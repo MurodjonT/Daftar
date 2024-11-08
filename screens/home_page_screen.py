@@ -17,7 +17,7 @@ class HomePageScreen(Screen):
     success_path = (By.XPATH, "//h1[contains(@class, 'welcome_page_title')]")
     select_lang = (By.XPATH, "//*[@name='lang']//parent::div")
     selected_eng_lang = (By.XPATH, "//div[@id='menu-lang']/div[3]/ul/li[3]/img")
-    logo_admin_top = (By.XPATH, "//*[@class='MuiAvatar-root MuiAvatar-circular MuiAvatar-colorDefault mui-style-ltr-1gifw44-MuiAvatar-root']")
+    logo_admin_top = (By.XPATH, '//*[@class="MuiAvatar-root MuiAvatar-circular mui-style-ltr-1u3scve-MuiAvatar-root"]')
     in_logo_balance = (By.XPATH, "//*[contains(text(), 'Balance')]")
     client_balance_option_select = (By.XPATH, '//input[@placeholder="Shops"]')
     selected_client_balance = (By.XPATH, "//li[@id=':r3:-option-0']/div")
